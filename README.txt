@@ -107,7 +107,7 @@ Movies with higher cosine similarity are recommended.
 pip install pandas scikit-learn streamlit selenium
 
 
-NLP Technique Flow Diagram
+#NLP Technique Flow Diagram
 User Story Input
         ↓
 Text Cleaning
@@ -121,5 +121,3 @@ Cosine Similarity
 Find Similar Movies
         ↓
 Top Recommendations
-```bash
-pip install pandas scikit-learn streamlit selenium
