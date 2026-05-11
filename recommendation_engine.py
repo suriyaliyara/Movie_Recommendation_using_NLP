@@ -40,7 +40,6 @@ df['Clean_Story'] = df['Storyline'].apply(clean_text)
 #f['Clean_Genre'] = df['Genre'].apply(clean_text)
 
 
-
 # ==============================
 # TF-IDF VECTORIZATION
 # ==============================
@@ -62,10 +61,7 @@ def recommend_movies(user_input, top_n=5):
     user_vector = tfidf.transform([cleaned_input])
 
     # Calculate Cosine Similarity
-    similarity_scores = cosine_similarity(
-        user_vector,
-        tfidf_matrix
-    ).flatten()
+    similarity_scores = cosine_similarity(user_vector,tfidf_matrix).flatten()
 
     # Add Similarity Score
     df['Similarity'] = similarity_scores
@@ -74,8 +70,8 @@ def recommend_movies(user_input, top_n=5):
     # 1. Similarity
     # 2. Rating
 
-    #recommendations = df.sort_values(by=['Similarity', 'Rating'],ascending=False).head(top_n)
-    recommendations = df.sort_values(by=['Similarity'],ascending=False).head(top_n)
+    recommendations = df.sort_values(by=['Similarity', 'Rating'],ascending=False).head(top_n)
+    #recommendations = df.sort_values(by=['Similarity'],ascending=False).head(top_n)
 
     # Return Important Columns
     return recommendations[['Movie Name','Storyline','Rating','Similarity']]
